@@ -1,30 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Learning PHP</title>
-</head>
-<body>
-<h1>Recommended Books</h1>
-
 <?php
-    $books = [
-        [
-            'name' => 'Do Androids Dream of Electric Sheep',
-            'author' => 'Andrew',
-        ],
-        [
-            'name' => 'Hail Mary',
-            'author' => 'Susy'
-        ]
-    ];
-?>
 
-<ul>
-    <?php foreach ($books as $book) :?>
-    <li><?= $book['name'] ?></li>
-    <?php endforeach ?>
-</ul>
+$books = [
+    [
+        'name' => 'Do Androids Dream of Electric Sheep',
+        'author' => 'Andrew Weir',
+        'releaseYear' => '2010',
+        'purchaseUrl' => 'http://example.com/',
+    ],
+    [
+        'name' => 'Hail Mary',
+        'author' => 'Susy',
+        'releaseYear' => '2012',
+        'purchaseUrl' => 'http://example.com/',
+    ]
+];
 
-</body>
-</html>
+$filteredBooks = array_filter($books, function ($book) {
+    return $book['author'] === 'Andrew Weir';
+});
+
+require "index.view.php";
